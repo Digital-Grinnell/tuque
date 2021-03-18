@@ -305,6 +305,7 @@ class FedoraRepository extends AbstractRepository {
    * @see AbstractRepository::getObject()
    * @todo perhaps we should check if an object exists instead of catching
    *   the exception
+   * @todo is DONE.  MAM:  Mar 18, 2021
    */
   public function getObject($id) {
     $object = $this->cache->get($id);
@@ -318,7 +319,7 @@ class FedoraRepository extends AbstractRepository {
       return $object;
     }
     catch (RepositoryException $e) {
-        throw $e;
+        return FALSE;
     }
   }
 
